@@ -6,10 +6,14 @@ const Restaurant = () => {
     const [login, setLogin] = useState<boolean>(true)
     return (
         <>
-            <h1>8:30</h1>
-            <Restaurantlogin />
-            <Restaurantsignup />
-            <button>Already login ? or signup</button>
+            {
+                login ? <Restaurantlogin /> : <Restaurantsignup />
+            }
+            <div>
+                <button onClick={() => setLogin(!login)}>
+                    {login ? "Do not have account? SingnUp...." : "Already have account? Login...."}
+                </button>
+            </div>
         </>
     )
 }
